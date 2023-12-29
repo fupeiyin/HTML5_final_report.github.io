@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>排球--首頁</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>     
+
+    <!-- owl.carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+    <!--jQuery-->
+  
+
+    <script>function history_and_development() {window.open("歷史與發展.html");}</script>
+    <script>function rules() {window.open("規則.html");}</script>
+    <script>function responsibility() {window.open("職責介紹.html");}</script>
+    <script>function stations() {window.open("站位介紹.html");}</script>
+    <script>function competition() {window.open("賽事.html");}</script>
+    <script>function imitation() {window.open("站位模擬.html");}</script>
+
+    <script type="text/javascript">
+        function formresponse() {
+            var Options= document.forms["form1"]["options"].value;
+            var Content= document.forms["form1"]["content"].value;
+            if (Options==null || Options=="")
+            {alert("建議頁面不可為空白!");
+                return false;}
+            else if (Content==null || Content=="")
+            {alert("建議內容不可為空白!");
+                return false;}
+            else
+            {var MySubmit = "https://docs.google.com/forms/d/e/1FAIpQLSe163Y3G_K25wnFjeZCs7ZW3ELqDrScImQNI5cVO2qdzJju6Q/formResponse?entry.730818628=" + Options + "&entry.16081310=" + Content + "&submit=Submit";
+             
+            var NewOpen = window.open(MySubmit);}
+    }</script>
+    <script>
+        var xmlhttp = new XMLHttpRequest();
+        var url = "https://emma.pixnet.cc/mainpage/blog/categories/hot/32?page=1&per_page=10&api_version=2&format=json";
+
+        xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var myArr = JSON.parse(xmlhttp.responseText);
+            myFunction(myArr);
+        }
+        }
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+
+        function myFunction(arr) {
+            var data = arr.articles;
+            var s = "";
+            var i;
+            for (i = 0; i < data.length; i++) {
+                let uri =`${data[i].link}`;
+                let encoded = encodeURIComponent(uri);
+                let decoded = decodeURIComponent(encoded);
+                if ( data[i].tags.length != 0 )
+                   {if(data[i].tags.length>=5)
+                    {a=5}
+                    else{a=data[i].tags.length}
+                    var tags="";
+                    for (j = 0; j < a; j++) {
+                        tags+=data[i].tags[j].tag + ', ';};}
+                        s+=`<div class="row">
+                        <div class="col s12 m6 l3">
+                        <div class="card">
+                        <div class="card-image">
+                        <img src="${data[i].thumb}">
+                        <a class="btn-floating halfway-fab waves-effect waves-light red" href="${data[i].link}" target="_blank"><i class="material-icons">link</i></a>
+                        </div>
+                        <div class="card-content">
+                        <p style="height:180px;">${data[i].title}<br>Tags:<br>${tags}</p>
+                        </div>
+                        </div>
+                        </div>`}
+            document.getElementById("pixnet-stuff").innerHTML = s;}
+     </script>
+
+</head>
+<body>
+<nav class="black" role="navigation">
+    <div class="nav-wrapper container">
+        <a class="black-text" id="logo-container" href="首頁.html" class="brand-logo"><img src="排球.png" height="70" alt="回到首頁"></a>
+        <ul style="width:max-content;padding:0;" class="right hide-on-med-and-down">
+        <li style="width:125px;list-style:none;display:inline-block;text-align-last:justify;border:1px #008080 double;"><a class="teal lighten-1 white-text" href="首頁.html" onclick="history_and_development()">歷史與發展</a></li>
+        <li style="width:125px;list-style:none;display:inline-block;text-align-last:justify;border:1px #008080 double;"><a class="teal lighten-1 white-text" href="首頁.html" onclick="rules()">規則</a></li>
+        <li style="width:125px;list-style:none;display:inline-block;text-align-last:justify;border:1px #008080 double;"><a class="teal lighten-1 white-text" href="首頁.html" onclick="responsibility()">職責介紹</a></li>
+        <li style="width:125px;list-style:none;display:inline-block;text-align-last:justify;border:1px #008080 double;"><a class="teal lighten-1 white-text" href="首頁.html" onclick="stations()">站位介紹</a></li>
+        <li style="width:125px;list-style:none;display:inline-block;text-align-last:justify;border:1px #008080 double;"><a class="teal lighten-1 white-text" href="首頁.html" onclick="competition()">賽事</a></li>
+        <li style="width:125px;list-style:none;display:inline-block;text-align-last:justify;border:1px #008080 double;"><a class="teal lighten-1 white-text" href="首頁.html" onclick="imitation()">站位模擬</a></li>
+        </ul>
+  
+        <ul id="nav-mobile" class="sidenav">
+            <li><a href="歷史與發展.html"><i class="material-icons left" class="blue-text">history</i>發展與歷史</a></li>
+            <li><a href="規則.html"><i class="material-icons left">sports</i>規則</a></li>
+            <li><a href="職責介紹.html"><i class="material-icons left">person_apron</i>職責介紹</a></li>
+            <li><a href="站位介紹.html"><i class="material-icons left">library_books</i>站位介紹</a></li>
+            <li><a href="賽事.html"><i class="material-icons left">emoji_events</i>賽事</a></li>
+            <li><a href="站位模擬.html"><i class="material-icons left">sports_volleyball</i>站位模擬</a></li>
+        </ul>
+        <a href="連結網頁" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+<!--網頁內容-->
+<br>
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">排球</h1>
+        <div class="row center">
+          <a href="歷史與發展.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+        </div>
+        <br><br>
+      </div>
+    </div>
+    <div class="parallax"><img src="MainPage-picture1.jpg" alt="排球場" ></div>
+  </div>
+  <br>
+  <div class="owl-carousel owl-theme">
+    <div class="item"><img src="橫向切換1.jpg" class="materialboxed" height="183"></div>
+    <div class="item"><img src="橫向切換2.jpg" class="materialboxed" height="183"></div>
+    <div class="item"><img src="橫向切換3.jpg" class="materialboxed" height="183"></div>
+    <div class="item"><img src="橫向切換4.jpg" class="materialboxed" height="183"></div>
+    <div class="item"><img src="橫向切換5.jpg" class="materialboxed" height="183"></div>
+    <div class="item"><img src="橫向切換6.jpg" class="materialboxed" height="183"></div>
+    <div class="item"><img src="橫向切換7.jpg" class="materialboxed" height="183"></div>
+    <div class="item"><img src="橫向切換8.jpg" class="materialboxed" height="183"></div>
+    <div class="item"><img src="橫向切換9.jpg" class="materialboxed" height="183"></div>
+    <div class="item"><img src="橫向切換10.jpg" class="materialboxed" height="183"></div>
+    <div class="item"><img src="橫向切換11.jpg" class="materialboxed" height="183"></div>
+    <div class="item"><img src="橫向切換12.jpg" class="materialboxed" height="183"></div>
+</div>
+
+  <div class="container">
+    
+    <div class="links">
+        <table>
+            <tr>
+                <td style="width:200px; text-align-last:justify;">
+                    <a href="歷史與發展.html"><i class="material-icons left">history</i>歷史與發展</a>
+                </td>
+                <td style="width:200px;text-align-last:justify;">
+                    <a href="規則.html"><i class="material-icons left">sports</i>規則</a>
+                </td>
+                <td style="width:200px;text-align-last:justify;">
+                    <a href="職責介紹.html"><i class="material-icons left">person</i>職責介紹</a>
+                </td>
+                <td style="width:200px;text-align-last:justify;">
+                    <a href="站位介紹.html"><i class="material-icons left">library_books</i>站位介紹</a>
+                </td>
+                <td style="width:200px;text-align-last:justify;">
+                    <a href="賽事.html"><i class="material-icons left">emoji_events</i>賽事</a>
+                </td>
+                <td style="width:200px;text-align-last:justify;">
+                    <a href="站位模擬.html"><i class="material-icons left">sports_volleyball</i>站位模擬</a>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    起源
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <a href="規則.html#man">男排規則</a>
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <a href="職責介紹.html#spiker">主攻手</a>
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <a href="站位介紹.html#maintype">基礎站位</a>
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    國際賽事
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <!--站位模擬-->
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    發展
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <a href="規則.html#woman">女排規則</a>
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <a href="職責介紹.html#blocker">副攻手</a>
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <a href="特殊站位國家.html">特殊站位國家</a>
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    國內賽事
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <!--站位模擬-->
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <!--歷史與發展-->
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    規則
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <a href="職責介紹.html#setter">舉球員</a>
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <!--站位介紹-->
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <!--賽事-->
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <!--站位模擬-->
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <!--歷史與發展-->
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <!--規則-->
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <a href="職責介紹.html#libero">自由球員</a>
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <!--站位介紹-->
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <!--賽事-->
+                </td>
+                <td style="text-align-last:justify;border:1px #0080801d double;">
+                    <!--站位模擬-->
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="others">
+        <h4>其他體育相關內容</h4>
+        <!--card-->
+        <div id="pixnet-stuff"></div>
+    </div>
+</div>
+<!--固定內容-->
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">建議回饋</h5>
+          <form name="form1" action="javascript:formresponse();">		
+            <div class="row">
+                <div class="input-field col s6" name="form1" action="javascript:formresponse();">
+                    <p>建議選項</p>
+                    <select class="browser-default" name="options" type="text" class="validate">
+                        <option value="" disabled selected>請選擇建議頁面</option>
+                        <option value="首頁">首頁</option>
+                        <option value="歷史與發展">歷史與發展</option>
+                        <option value="規則">規則</option>
+                        <option value="職責介紹">職責介紹</option>
+                        <option value="站位介紹">站位介紹</option>
+                        <option value="賽事">賽事</option>
+                        <option value="站位模擬">站位模擬</option>
+                    </select>
+                </div>
+                <div class="input-field col s6" name="form1" action="javascript:formresponse();">
+                    <p>建議內容</p>
+                    <input placeholder="請輸入建議內容" name="content" type="text" class="validate">
+                </div>
+            </div>
+	  
+	  
+		<input type="submit" value="送出建議">
+	</form>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">主要頁面連結</h5>
+          <ul>
+            <li><a class="white-text" href="歷史與發展.html">歷史與發展</a></li>
+            <li><a class="white-text" href="規則.html">規則</a></li>
+            <li><a class="white-text" href="職責介紹.html">職責介紹</a></li>
+            <li><a class="white-text" href="站位介紹.html">站位介紹</a></li>
+            <li><a class="white-text" href="賽事.html">賽事</a></li>
+            <li><a class="white-text" href="站位模擬.html">站位模擬</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">其他頁面連結</h5>
+          <ul>
+            <li><a class="white-text" href="規則.html#man">男排規則</a></li>
+            <li><a class="white-text" href="規則html#woman">女排規則</a></li>
+            <li><a class="white-text" href="職責介紹.html#spiker">主攻手</a></li>
+            <li><a class="white-text" href="職責介紹.html#blocker">副攻手</a></li>
+            <li><a class="white-text" href="職責介紹.html#setter">舉球員</a></li>
+            <li><a class="white-text" href="職責介紹.html#libero">自由球員</a></li>
+            <li><a class="white-text" href="站位介紹.html#maintype">基礎站位</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      <a class="brown-text text-lighten-3" href="首頁.html">回到首頁</a>
+      </div>
+    </div>
+  </footer>
+
+
+<!--  Scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.collapsible').collapsible();
+    $(".modal").modal();
+    $('.materialboxed').materialbox();
+    $(".parallax").parallax();
+    $('select').formSelect();
+    $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        autoplay:true,
+        autoplayTimeout:5000,
+        autoplayHoverPause:true,
+        responsive: {
+            0: { items: 1 },
+            600: { items: 3 },
+            1000: { items: 5 }
+        }
+        });
+  });
+</script>
+</body>
+</html>
+
